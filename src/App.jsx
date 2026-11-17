@@ -7,6 +7,7 @@ const burgers = [
     description: "Chicken breast, chili sauce, tomatoes, pickles, coleslaw",
     rating: 5,
     price: 99.15,
+    badge: "Best Seller",
     image:
       "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=800&q=85",
     imageAlt: "Crispy fried chicken burger with fresh lettuce",
@@ -17,6 +18,7 @@ const burgers = [
     description: "House patty, cheddar cheese, bacon, onion, mustard",
     rating: 4.5,
     price: 99.32,
+    badge: "Hot Pick",
     image:
       "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85",
     imageAlt: "Bacon cheeseburger with a toasted bun",
@@ -27,6 +29,7 @@ const burgers = [
     description: "American cheese, tomato relish, avocado, lettuce, red onion",
     rating: 4,
     price: 69.15,
+    badge: "New",
     image:
       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=85",
     imageAlt: "Juicy cheeseburger with lettuce and tomato",
@@ -37,6 +40,7 @@ const burgers = [
     description: "House patty, cheddar cheese, bacon, onion, mustard",
     rating: 3.5,
     price: 99.25,
+    badge: "Plant-based",
     image:
       "https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=800&q=85",
     imageAlt: "Stacked burger with fresh vegetables and melted cheese",
@@ -114,11 +118,14 @@ function App() {
           <div className="burger-grid" id="shop">
             {burgers.map((burger) => (
               <article className="burger-card" key={burger.id}>
-                <img
-                  className="burger-image"
-                  src={burger.image}
-                  alt={burger.imageAlt}
-                />
+                <div className="image-wrap">
+                  <img
+                    className="burger-image"
+                    src={burger.image}
+                    alt={burger.imageAlt}
+                  />
+                  <span className="burger-badge">{burger.badge}</span>
+                </div>
                 <div className="burger-card-content">
                   <div className="card-meta">
                     <StarRating rating={burger.rating} name={burger.name} />
